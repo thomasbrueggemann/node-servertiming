@@ -1,0 +1,36 @@
+{
+  "name": "servertiming",
+  "version": "1.0.0",
+  "description": "📊 Generate Server-Timing headers interactively in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasbrueggemann/node-servertiming.git"
+  },
+  "keywords": [
+    "servertiming",
+    "monitoring",
+    "timing",
+    "speed",
+    "performance",
+    "monitor"
+  ],
+  "author": "Thomas Brüggemann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasbrueggemann/node-servertiming/issues"
+  },
+  "homepage": "https://github.com/thomasbrueggemann/node-servertiming#readme",
+  "dependencies": {
+    "slugify": "^1.1.0",
+    "timer-machine": "^1.1.0"
+  },
+  "devDependencies": {
+	"mocha": "*",
+	"should": ">= 0.0.1",
+	"glob": "*"
+  }
+}
