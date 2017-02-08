@@ -1,7 +1,7 @@
 <img src="http://i.imgur.com/8VdlYKn.png" />
 
 # 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming)
-Generate Server-Timing headers interactively in NodeJS
+Generate Server-Timing headers interactively by setting timers in NodeJS
 
 Inpired by:
 
