@@ -48,7 +48,8 @@ class ServerTiming {
 			header += slug + "=" + (this.times[slug] / 1000) + "; \"" + this.metrics[slug] + "\",";
 		});
 
-		return header;
+		// remove trailing comma and return header string
+		return header.replace(/,\s*$/, "");
 	}
 }
 
