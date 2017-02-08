@@ -1,3 +1,5 @@
+"use strict";
+
 var Timer = require("timer-machine");
 var slugify = require("slugify");
 
