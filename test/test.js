@@ -20,6 +20,14 @@ describe("Server-Timing ", function() {
 		return done();
 	});
 
+	it("should add an external metric 'Image Processing'", function(done) {
+
+		var time = ServerTiming.addMetric("Image Processing", 12365);
+		(time > 0).should.equal(true);
+
+		return done();
+	});
+
 	it("should print the Server-Timing header string", function(done) {
 
 		var header = ServerTiming.generateHeader();

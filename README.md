@@ -27,6 +27,10 @@ ServerTiming.start("Database Query");
 // ... later, you can stop the timer
 var timeInMS = ServerTiming.stop("Database Query");
 
+// you can also add metrics without the timer function
+// the time value is always in milliseconds!
+ServerTiming.addMetric("Image Processing", 12847)
+
 // ... use the header string within your server framework or whatever
 res.setHeader("Server-Timing", ServerTiming.generateHeader());
 return res.send({whatever: "you want"});

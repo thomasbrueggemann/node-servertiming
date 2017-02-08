@@ -40,6 +40,17 @@ class ServerTiming {
 		return this.times[slug];
 	}
 
+	// ADD METRIC
+	addMetric(name, value) {
+
+		// slugify name
+		var slug = slugify(name).toLowerCase();
+		this.metrics[slug] = name;
+		this.times[slug] = parseFloat(value);
+
+		return true;
+	}
+
 	// GENERATE HEADER
 	generateHeader() {
 

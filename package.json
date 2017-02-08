@@ -1,6 +1,6 @@
 {
   "name": "servertiming",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "📊 Generate Server-Timing headers interactively in NodeJS",
   "main": "index.js",
   "scripts": {

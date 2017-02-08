@@ -13,6 +13,9 @@ app.get("/", function(req, res) {
 		// stop timer
 		ServerTiming.stop("Database Query");
 
+		// add external non timer metric in milliseconds
+		ServerTiming.addMetric("Image Processing", 12365);
+
 		res.header("Server-Timing", ServerTiming.generateHeader());
 		return res.send({whatever: "you want"});
 
