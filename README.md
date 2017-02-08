@@ -1,4 +1,6 @@
-# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg)](https://travis-ci.org/thomasbrueggemann/node-servertiming) 
+<img src="http://i.imgur.com/8VdlYKn.png" />
+
+# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming)
 Generate Server-Timing headers interactively in NodeJS
 
 Inpired by:
@@ -31,3 +33,5 @@ return res.send({whatever: "you want"});
 
 // This will output: database-query=0.122; "Database Query"
 ```
+
+See the /example folder for a detailed express.js example!

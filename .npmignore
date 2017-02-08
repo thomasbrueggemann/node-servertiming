@@ -2,6 +2,7 @@ test
 apps
 doc
 examples
+example
 node_modules
 pres
 *.pyc
