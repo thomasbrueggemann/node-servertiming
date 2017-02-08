@@ -14,7 +14,7 @@ class ServerTiming {
 	start(name) {
 
 		// slugify name
-		var slug = slugify(name);
+		var slug = slugify(name).toLowerCase();
 		this.metrics[slug] = name;
 
 		// start timer
@@ -27,7 +27,7 @@ class ServerTiming {
 	stop(name) {
 
 		// slugify name
-		var slug = slugify(name);
+		var slug = slugify(name).toLowerCase();
 
 		Timer.get(slug).stop();
 
@@ -44,7 +44,7 @@ class ServerTiming {
 		var header = "";
 
 		// loop the metrics
-		Object.keys(this.names).forEach(slug => {
+		Object.keys(this.metrics).forEach(slug => {
 			header += slug + "=" + (this.times[slug] / 1000) + "; \"" + this.metrics[slug] + "\",";
 		});
 
