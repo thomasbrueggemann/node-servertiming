@@ -1,4 +1,4 @@
-# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg)](https://travis-ci.org/thomasbrueggemann/node-servertiming) [![npm](https://img.shields.io/badge/npm-1.0.0-blue.svg)](https://www.npmjs.com/package/servertiming)
+# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg)](https://travis-ci.org/thomasbrueggemann/node-servertiming) 
 Generate Server-Timing headers interactively in NodeJS
 
 Inpired by:
