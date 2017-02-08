@@ -4,9 +4,11 @@ var ServerTiming = require("../index");
 
 describe("Server-Timing ", function() {
 
+	var timing = new ServerTiming();
+
 	it("should start a timer with the name 'Database Query'", function(done) {
 
-		var result = ServerTiming.start("Database Query");
+		var result = timing.start("Database Query");
 		result.should.equal(true);
 
 		setTimeout(done, 112);
@@ -14,7 +16,7 @@ describe("Server-Timing ", function() {
 
 	it("should stop a timer with the name 'Database Query'", function(done) {
 
-		var time = ServerTiming.stop("Database Query");
+		var time = timing.stop("Database Query");
 		(time > 0).should.equal(true);
 
 		return done();
@@ -22,7 +24,7 @@ describe("Server-Timing ", function() {
 
 	it("should add an external metric 'Image Processing'", function(done) {
 
-		var time = ServerTiming.addMetric("Image Processing", 12365);
+		var time = timing.addMetric("Image Processing", 12365);
 		(time > 0).should.equal(true);
 
 		return done();
@@ -30,7 +32,7 @@ describe("Server-Timing ", function() {
 
 	it("should print the Server-Timing header string", function(done) {
 
-		var header = ServerTiming.generateHeader();
+		var header = timing.generateHeader();
 		console.log(header);
 		(header.length > 0).should.equal(true);
 

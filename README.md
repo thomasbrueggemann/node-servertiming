@@ -18,21 +18,22 @@ npm install servertiming --save
 
 ```javascript
 var ServerTiming = require("servertiming");
+var timing = new ServerTiming();
 
 // start the timer
-ServerTiming.start("Database Query");
+timing.start("Database Query");
 
 // ... do something work intensive
 
 // ... later, you can stop the timer
-var timeInMS = ServerTiming.stop("Database Query");
+var timeInMS = timing.stop("Database Query");
 
 // you can also add metrics without the timer function
 // the time value is always in milliseconds!
-ServerTiming.addMetric("Image Processing", 12847)
+timing.addMetric("Image Processing", 12847)
 
 // ... use the header string within your server framework or whatever
-res.setHeader("Server-Timing", ServerTiming.generateHeader());
+res.setHeader("Server-Timing", timing.generateHeader());
 return res.send({whatever: "you want"});
 
 // This will output: database-query=0.122; "Database Query"

@@ -66,4 +66,4 @@ class ServerTiming {
 	}
 }
 
-module.exports = new ServerTiming();
+module.exports = ServerTiming;

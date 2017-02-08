@@ -4,19 +4,21 @@ var ServerTiming = require("../index");
 
 app.get("/", function(req, res) {
 
+	var timing = new ServerTiming();
+
 	// start timer
-	ServerTiming.start("Database Query");
+	timing.start("Database Query");
 
 	// simulate long running database query
 	setTimeout(function() {
 
 		// stop timer
-		ServerTiming.stop("Database Query");
+		timing.stop("Database Query");
 
 		// add external non timer metric in milliseconds
-		ServerTiming.addMetric("Image Processing", 12365);
+		timing.addMetric("Image Processing", 12365);
 
-		res.header("Server-Timing", ServerTiming.generateHeader());
+		res.header("Server-Timing", timing.generateHeader());
 		return res.send({whatever: "you want"});
 
 	}, 1234);
