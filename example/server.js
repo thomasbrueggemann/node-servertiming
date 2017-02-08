@@ -7,13 +7,13 @@ app.get("/", function(req, res) {
 	var timing = new ServerTiming();
 
 	// start timer
-	timing.start("Database Query");
+	timing.startTimer("Database Query");
 
 	// simulate long running database query
 	setTimeout(function() {
 
 		// stop timer
-		timing.stop("Database Query");
+		timing.stopTimer("Database Query");
 
 		// add external non timer metric in milliseconds
 		timing.addMetric("Image Processing", 12365);

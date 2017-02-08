@@ -12,8 +12,8 @@ class ServerTiming {
 		this.times = {};
 	}
 
-	// START
-	start(name) {
+	// START TIMER
+	startTimer(name) {
 
 		// slugify name
 		var slug = slugify(name).toLowerCase();
@@ -25,8 +25,8 @@ class ServerTiming {
 		return true;
 	}
 
-	// STOP
-	stop(name) {
+	// STOP TIMER
+	stopTimer(name) {
 
 		// slugify name
 		var slug = slugify(name).toLowerCase();

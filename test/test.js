@@ -8,7 +8,7 @@ describe("Server-Timing ", function() {
 
 	it("should start a timer with the name 'Database Query'", function(done) {
 
-		var result = timing.start("Database Query");
+		var result = timing.startTimer("Database Query");
 		result.should.equal(true);
 
 		setTimeout(done, 112);
@@ -16,7 +16,7 @@ describe("Server-Timing ", function() {
 
 	it("should stop a timer with the name 'Database Query'", function(done) {
 
-		var time = timing.stop("Database Query");
+		var time = timing.stopTimer("Database Query");
 		(time > 0).should.equal(true);
 
 		return done();

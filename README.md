@@ -21,12 +21,12 @@ var ServerTiming = require("servertiming");
 var timing = new ServerTiming();
 
 // start the timer
-timing.start("Database Query");
+timing.startTimer("Database Query");
 
 // ... do something work intensive
 
 // ... later, you can stop the timer
-var timeInMS = timing.stop("Database Query");
+var timeInMS = timing.stopTimer("Database Query");
 
 // you can also add metrics without the timer function
 // the time value is always in milliseconds!
