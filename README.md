@@ -34,4 +34,4 @@ return res.send({whatever: "you want"});
 // This will output: database-query=0.122; "Database Query"
 ```
 
-See the /example folder for a detailed express.js example!
+See the <a href="https://github.com/thomasbrueggemann/node-servertiming/tree/master/example">/example</a> folder for a detailed express.js example!
