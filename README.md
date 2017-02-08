@@ -20,8 +20,10 @@ var ServerTiming = require("servertiming");
 // start the timer
 ServerTiming.start("Database Query");
 
+// ... do something work intensive
+
 // ... later, you can stop the timer
-ServerTiming.stop("Database Query");
+var timeInMS = ServerTiming.stop("Database Query");
 
 // ... use the header string within your server framework or whatever
 res.setHeader("Server-Timing", ServerTiming.generateHeader());
