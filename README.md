@@ -34,7 +34,8 @@ timing.addMetric("Image Processing", 12847)
 res.setHeader("Server-Timing", timing.generateHeader());
 return res.send({whatever: "you want"});
 
-// This will output: database-query=0.122; "Database Query"
+// this will output: 
+// database-query=0.122; "Database Query",image-processing=12.365; "Image Processing"
 ```
 
 See the <a href="https://github.com/thomasbrueggemann/node-servertiming/tree/master/example">/example</a> folder for a detailed express.js example!
