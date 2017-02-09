@@ -1,4 +1,4 @@
-# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming)
+# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming) [![npm version](https://badge.fury.io/js/servertiming.svg)](https://badge.fury.io/js/servertiming)
 Generate Server-Timing headers interactively by setting timers in NodeJS
 
 Inpired by:
@@ -34,7 +34,7 @@ timing.addMetric("Image Processing", 12847)
 res.setHeader("Server-Timing", timing.generateHeader());
 return res.send({whatever: "you want"});
 
-// this will output: 
+// this will output:
 // database-query=0.122; "Database Query",image-processing=12.365; "Image Processing"
 ```
 
