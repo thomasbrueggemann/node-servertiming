@@ -22,10 +22,26 @@ describe("Server-Timing ", function() {
 		return done();
 	});
 
+	it("should NOT stop a timer that was not previously started", function(done) {
+
+		var time = timing.stopTimer("Bullshit");
+		time.should.equal(false);
+
+		return done();
+	});
+
 	it("should add an external metric 'Image Processing'", function(done) {
 
 		var time = timing.addMetric("Image Processing", 12365);
 		(time > 0).should.equal(true);
+
+		return done();
+	});
+
+	it("should NOT add an external metric with non number value", function(done) {
+
+		var time = timing.addMetric("Bullshit", "a");
+		time.should.equal(false);
 
 		return done();
 	});

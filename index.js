@@ -17,6 +17,8 @@ class ServerTiming {
 
 		// slugify name
 		var slug = slugify(name).toLowerCase();
+		if(!slug || slug.length === 0) return false;
+
 		this.metrics[slug] = name;
 
 		// start timer
@@ -30,7 +32,12 @@ class ServerTiming {
 
 		// slugify name
 		var slug = slugify(name).toLowerCase();
+		if(!slug || slug.length === 0) return false;
 
+		// check if timer even exists
+		if(this.metrics && !(slug in this.metrics)) return false;
+
+		// stop timer
 		Timer.get(slug).stop();
 
 		// get time
@@ -45,8 +52,16 @@ class ServerTiming {
 
 		// slugify name
 		var slug = slugify(name).toLowerCase();
+		if(!slug || slug.length === 0) return false;
+
+		var parsedValue = parseFloat(value);
+
+		// check if value is not a number
+		if(isNaN(parsedValue)) return false;
+
+		// add metric manually
 		this.metrics[slug] = name;
-		this.times[slug] = parseFloat(value);
+		this.times[slug] = parsedValue;
 
 		return true;
 	}
