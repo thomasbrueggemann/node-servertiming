@@ -1,4 +1,4 @@
-# 📊 Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming) [![npm version](https://badge.fury.io/js/servertiming.svg)](https://badge.fury.io/js/servertiming)
+# Server-Timing [![Build Status](https://travis-ci.org/thomasbrueggemann/node-servertiming.svg?branch=master)](https://travis-ci.org/thomasbrueggemann/node-servertiming) [![npm version](https://badge.fury.io/js/servertiming.svg)](https://badge.fury.io/js/servertiming)
 Generate Server-Timing headers interactively by setting timers in NodeJS
 
 Inpired by:
