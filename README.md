@@ -22,7 +22,7 @@ var timing = new ServerTiming();
 
 timing.startTimer("Database Query");
 
-// ... do something work intensive
+// ... do something work-intensive
 
 var timeInMS = timing.stopTimer("Database Query");
 
