@@ -20,12 +20,10 @@ npm install servertiming --save
 var ServerTiming = require("servertiming");
 var timing = new ServerTiming();
 
-// start the timer
 timing.startTimer("Database Query");
 
 // ... do something work intensive
 
-// ... later, you can stop the timer
 var timeInMS = timing.stopTimer("Database Query");
 
 // you can also add metrics without the timer function
