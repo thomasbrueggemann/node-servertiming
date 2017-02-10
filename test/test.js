@@ -46,6 +46,16 @@ describe("Server-Timing ", function() {
 		return done();
 	});
 
+	it("should NOT have reference to timer after it is cleared", function(done) {
+
+		timing.startTimer("Failed Operation");
+		timing.clearTimer("Failed Operation");
+		var header = timing.generateHeader();
+		header.indexOf("Failed Operation").should.equal(-1);
+
+		return done();
+	});
+
 	it("should print the Server-Timing header string", function(done) {
 
 		var header = timing.generateHeader();

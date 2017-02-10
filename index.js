@@ -47,6 +47,27 @@ class ServerTiming {
 		return this.times[slug];
 	}
 
+	// CLEAR TIMER
+	clearTimer(name) {
+
+		// slugify name
+		var slug = slugify(name).toLowerCase();
+		if(!slug || slug.length === 0) return false;
+
+		// check if timer even exists
+		if(this.metrics && !(slug in this.metrics)) return false;
+
+		// stop and destory timer
+		Timer.get(slug).stop();
+		Timer.destroy(slug);
+
+		// delete references to this slug
+		delete this.metrics[slug];
+		delete this.times[slug];
+
+		return true;
+	}
+
 	// ADD METRIC
 	addMetric(name, value) {
 
