@@ -30,12 +30,22 @@ var timeInMS = timing.stopTimer("Database Query");
 // the time value is always in milliseconds!
 timing.addMetric("Image Processing", 12847)
 
+// If an operation you are timing fails before the
+// timer can be stopped, you can clear that timer
+try {
+  timing.startTimer('Failed Operation');
+  throw new Error('The operation failed!');
+  timing.stopTimer('Failed Operation');
+} catch (e) {
+  timing.clearTimer('Failed Operation');
+}
+
 // ... use the header string within your server framework or whatever
 res.setHeader("Server-Timing", timing.generateHeader());
 return res.send({whatever: "you want"});
 
 // this will output:
-// database-query=0.122; "Database Query",image-processing=12.365; "Image Processing"
+// database-query=0.122; "Database Query",image-processing=12.847; "Image Processing"
 ```
 
 See the <a href="https://github.com/thomasbrueggemann/node-servertiming/tree/master/example">/example</a> folder for a detailed express.js example!
