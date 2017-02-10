@@ -33,11 +33,11 @@ timing.addMetric("Image Processing", 12847)
 // If an operation you are timing fails before the
 // timer can be stopped, you can clear that timer
 try {
-  timing.startTimer('Failed Operation');
-  throw new Error('The operation failed!');
-  timing.stopTimer('Failed Operation');
+	timing.startTimer("Failed Operation");
+	throw new Error("The operation failed!");
+	timing.stopTimer("Failed Operation");
 } catch (e) {
-  timing.clearTimer('Failed Operation');
+	timing.clearTimer("Failed Operation");
 }
 
 // ... use the header string within your server framework or whatever
