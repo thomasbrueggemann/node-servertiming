@@ -29,7 +29,7 @@
   "homepage": "https://github.com/thomasbrueggemann/node-servertiming#readme",
   "dependencies": {
     "slugify": "^1.1.0",
-    "timer-machine": "^1.1.0"
+    "timer-machine-node": "^1.1.1"
   },
   "devDependencies": {
 	"mocha": "*",
