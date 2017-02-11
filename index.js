@@ -1,6 +1,6 @@
 "use strict";
 
-var Timer = require("timer-machine");
+var Timer = require("timer-machine-node");
 var slugify = require("slugify");
 
 // SERVER - TIMING
