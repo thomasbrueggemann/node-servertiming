@@ -18,8 +18,16 @@ app.get("/", function(req, res) {
 		// add external non timer metric in milliseconds
 		timing.addMetric("Image Processing", 12365);
 
-		res.header("Server-Timing", timing.generateHeader());
-		return res.send({whatever: "you want"});
+		var shortQueryTimer = timing.startTimer("Short Query");
+
+		// simulate a shorter database query
+		setTimeout(function() {
+
+			shortQueryTimer.stop();
+
+			res.header("Server-Timing", timing.generateHeader());
+			return res.send({whatever: "you want"});
+		}, 200);
 
 	}, 1234);
 });
