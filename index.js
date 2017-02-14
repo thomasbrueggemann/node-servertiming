@@ -22,9 +22,47 @@ class ServerTiming {
 		this.metrics[slug] = name;
 
 		// start timer
-		Timer.get(slug).start();
+		var timer = Timer.get(slug);
+		timer.start();
 
-		return true;
+		var self = this;
+
+		return {
+			stop() {
+
+				// check if timer even exists
+				if(self.metrics && !(slug in self.metrics)) return false;
+
+				// already stopped and recorded
+				if(slug in self.times) return self.times[slug];
+
+				// stop timer
+				Timer.get(slug).stop();
+
+				// get time
+				self.times[slug] = Timer.get(slug).time();
+				Timer.destroy(slug);
+
+				return self.times[slug];
+
+			},
+
+			clear() {
+
+				// check if timer even exists
+				if(self.metrics && !(slug in self.metrics)) return false;
+
+				// stop and destory timer
+				Timer.get(slug).stop();
+				Timer.destroy(slug);
+
+				// delete references to self slug
+				delete self.metrics[slug];
+				delete self.times[slug];
+
+				return true;
+			}
+		}
 	}
 
 	// STOP TIMER
