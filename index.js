@@ -132,7 +132,7 @@ class ServerTiming {
 
 		// loop the metrics
 		Object.keys(this.metrics).forEach(slug => {
-			header += slug + "=" + (this.times[slug] / 1000) + "; \"" + this.metrics[slug] + "\",";
+			header += slug + "=" + this.times[slug] + "; \"" + this.metrics[slug] + "\",";
 		});
 
 		// remove trailing comma and return header string
