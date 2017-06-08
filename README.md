@@ -45,7 +45,7 @@ res.setHeader("Server-Timing", timing.generateHeader());
 return res.send({whatever: "you want"});
 
 // this will output:
-// database-query=0.122; "Database Query",image-processing=12.847; "Image Processing"
+// database-query=122; "Database Query",image-processing=12847; "Image Processing"
 ```
 
 See the <a href="https://github.com/thomasbrueggemann/node-servertiming/tree/master/example">/example</a> folder for a detailed express.js example!
