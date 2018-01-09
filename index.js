@@ -5,7 +5,6 @@ var slugify = require("slugify");
 
 // SERVER - TIMING
 class ServerTiming {
-
 	// CONSTRUCTOR
 	constructor() {
 		this.metrics = {};
@@ -14,10 +13,9 @@ class ServerTiming {
 
 	// START TIMER
 	startTimer(name) {
-
 		// slugify name
 		var slug = slugify(name).toLowerCase();
-		if(!slug || slug.length === 0) return false;
+		if (!slug || slug.length === 0) return false;
 
 		this.metrics[slug] = name;
 
@@ -29,12 +27,11 @@ class ServerTiming {
 
 		return {
 			stop() {
-
 				// check if timer even exists
-				if(self.metrics && !(slug in self.metrics)) return false;
+				if (self.metrics && !(slug in self.metrics)) return false;
 
 				// already stopped and recorded
-				if(slug in self.times) return self.times[slug];
+				if (slug in self.times) return self.times[slug];
 
 				// stop timer
 				Timer.get(slug).stop();
@@ -44,13 +41,11 @@ class ServerTiming {
 				Timer.destroy(slug);
 
 				return self.times[slug];
-
 			},
 
 			clear() {
-
 				// check if timer even exists
-				if(self.metrics && !(slug in self.metrics)) return false;
+				if (self.metrics && !(slug in self.metrics)) return false;
 
 				// stop and destory timer
 				Timer.get(slug).stop();
@@ -62,18 +57,17 @@ class ServerTiming {
 
 				return true;
 			}
-		}
+		};
 	}
 
 	// STOP TIMER
 	stopTimer(name) {
-
 		// slugify name
 		var slug = slugify(name).toLowerCase();
-		if(!slug || slug.length === 0) return false;
+		if (!slug || slug.length === 0) return false;
 
 		// check if timer even exists
-		if(this.metrics && !(slug in this.metrics)) return false;
+		if (this.metrics && !(slug in this.metrics)) return false;
 
 		// stop timer
 		Timer.get(slug).stop();
@@ -87,13 +81,12 @@ class ServerTiming {
 
 	// CLEAR TIMER
 	clearTimer(name) {
-
 		// slugify name
 		var slug = slugify(name).toLowerCase();
-		if(!slug || slug.length === 0) return false;
+		if (!slug || slug.length === 0) return false;
 
 		// check if timer even exists
-		if(this.metrics && !(slug in this.metrics)) return false;
+		if (this.metrics && !(slug in this.metrics)) return false;
 
 		// stop and destory timer
 		Timer.get(slug).stop();
@@ -108,15 +101,14 @@ class ServerTiming {
 
 	// ADD METRIC
 	addMetric(name, value) {
-
 		// slugify name
 		var slug = slugify(name).toLowerCase();
-		if(!slug || slug.length === 0) return false;
+		if (!slug || slug.length === 0) return false;
 
 		var parsedValue = parseFloat(value);
 
 		// check if value is not a number
-		if(isNaN(parsedValue)) return false;
+		if (isNaN(parsedValue)) return false;
 
 		// add metric manually
 		this.metrics[slug] = name;
@@ -127,12 +119,17 @@ class ServerTiming {
 
 	// GENERATE HEADER
 	generateHeader() {
-
 		var header = "";
 
 		// loop the metrics
 		Object.keys(this.metrics).forEach(slug => {
-			header += slug + "; dur=" + this.times[slug] + "; desc=\"" + this.metrics[slug] + "\",";
+			header +=
+				slug +
+				"; dur=" +
+				this.times[slug] +
+				'; desc="' +
+				this.metrics[slug] +
+				'",';
 		});
 
 		// remove trailing comma and return header string
